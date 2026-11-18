@@ -78,9 +78,11 @@ Incluye las capturas relevantes generadas durante las pruebas y escribe la ruta 
 
 ## 4. Dificultades y cómo las resolví
 
-- Dificultad: [todas lass pruebas no pasaron al principio por una configuracion en el archivo  y dependencias que no tenia ].
-- 
+- Dificultad: todas lass pruebas no pasaron al principio por una configuracion en el archivo  y dependencias que no tenia y ponia en ghost_blog que solo es para levantar el ambiente y en el curso si es paa correr e instalar dependencias y demas. 
+-  Algunos locators de ejemplo no coincidían con mi instalación de Ghost lo cual Usé Codegen y Pick locator para verificar los elemento.
+-  Mailpit conserva correos anteriores, por lo que la prueba podía tomar un código vencido. Solución: Añadí una función para limpiar Mailpit antes de pedir un código nuevo y extraer el código del asunto del mensaje.
 
 ## 5. Conclusiones
 
 Separé las pruebas del reto en reto/, configuré un proyecto Playwright con TypeScript y creé Page Objects para el panel, la página pública y el portal de miembros. Las credenciales están en .env, y la prueba del miembro consulta Mailpit para recuperar el código de acceso. Automaticé casos positivos y negativos de login, búsqueda y acceso de miembros. Playwright genera un reporte HTML de evidencias el cual se almacena en la carpeta y se vera al correr el reporte (**npx playwright show-report**)
+ejecutado localmente con Docker, usando Playwright y TypeScript. Al finalizar, pasaron las seis pruebas de Ghost y las siete pruebas de SauceDemo de clase; el reporte HTML confirmó los resultados. También subí el proyecto a GitHub sin incluir el archivo .env ya que contiene las claves y en archivo privado.
